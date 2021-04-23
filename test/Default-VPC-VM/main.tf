@@ -17,3 +17,7 @@ module "keys" {
 data "aws_vpc" "default" {
   default = true
 }
+
+module "ubuntu_20_04" {
+  source = "../../modlues/UbuntuImage"
+}
