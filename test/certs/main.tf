@@ -6,6 +6,6 @@ terraform {
 }
 
 module "keys" {
-  source = "../../modlues/certs"
+  source = "../../modules/certs"
   bit_size = var.RSA_bit_size
 }

@@ -9,9 +9,8 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-
 module "keys" {
-  source = "../../modlues/certs"
+  source = "../../modules/certs"
 }
 
 data "aws_vpc" "default" {
@@ -19,5 +18,17 @@ data "aws_vpc" "default" {
 }
 
 module "ubuntu_20_04" {
-  source = "../../modlues/UbuntuImage"
+  source = "../../modules/UbuntuImage"
+}
+
+module "security" {
+  source = "../../modules/Security-Group"
+  name = "simple-ssh"
+  vpc = data.aws_vpc.default.id
+}
+
+module "sever" {
+  source = "../../modules/VM"
+  ami = module.ubuntu_20_04.AMI
+  security_group = "sg-0b07554acd9ae1d4a" //module.security.security_group_id
 }
