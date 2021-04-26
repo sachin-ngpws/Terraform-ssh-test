@@ -33,3 +33,12 @@ variable "instance_name" {
   description = "The name tag value for the VM."
   default = "Test-ssh-golang"
 }
+
+variable "key_name" {
+  description = "The name of the key for the VM."
+
+  validation {
+    condition = var.key_name != ""
+    error_message = "The key_name cannot be empty."
+  }
+}

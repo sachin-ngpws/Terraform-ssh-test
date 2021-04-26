@@ -27,8 +27,14 @@ module "security" {
   vpc = data.aws_vpc.default.id
 }
 
+module "ssh-key" {
+  source = "../../modules/Keys"
+  public_key = module.keys.public_key
+}
+
 module "sever" {
   source = "../../modules/VM"
   ami = module.ubuntu_20_04.AMI
   security_group = "sg-0b07554acd9ae1d4a" //module.security.security_group_id
+  key_name = module.ssh-key.key
 }

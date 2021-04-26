@@ -15,3 +15,7 @@ output "vpc" {
 output "external_ip" {
   value = module.sever.external_ip
 }
+
+output "key_name" {
+  value = module.ssh-key.key
+}
