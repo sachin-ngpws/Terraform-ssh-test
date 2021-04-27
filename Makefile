@@ -4,3 +4,7 @@ module-internals:
 	touch modules/${MODULE_NAME}/main.tf
 	touch modules/${MODULE_NAME}/input.tf
 	touch modules/${MODULE_NAME}/output.tf
+
+test-all:
+	(cd test/certs ; make test)
+	(cd test/Default_VPC_VM ; make test)
