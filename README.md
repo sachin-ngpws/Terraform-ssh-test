@@ -44,4 +44,5 @@ Requirements
 * AWS credential
 * Terraform binary
 * golang 
-* make utility 
+* make utility
+* terratest - run to get dependecy `make get-terratest` 

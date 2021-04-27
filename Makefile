@@ -9,3 +9,6 @@ module-internals:
 test-all:
 	(cd test/certs ; make test)
 	(cd test/Default_VPC_VM ; make test)
+
+get-terratest:
+	go get github.com/gruntwork-io/terratest
